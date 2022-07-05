@@ -1,7 +1,9 @@
+import getGreetings from './greetingsapi';
+
 const LOAD_GREETINGS = 'LOAD_GREETINGS';
 
 export const fetchGreetings = () => async (dispatch) => {
-  const response = await fetch('/v1/greetings/');
+  const response = await getGreetings();
   const data = await response.json();
   if (response.ok) {
     dispatch({
@@ -10,6 +12,21 @@ export const fetchGreetings = () => async (dispatch) => {
     });
   }
 };
+
+// export const displayMission = () => async (dispatch) => {
+//   const missionsArr = await getMissions();
+//   const missionsTemp = [];
+
+//   Object.keys(missionsArr).forEach((id) => {
+//     missionsTemp.push({
+//       mission_id: missionsArr[id].mission_id,
+//       mission_name: missionsArr[id].mission_name,
+//       description: missionsArr[id].description,
+//       reserved: false,
+//     });
+//   });
+//   dispatch(load(missionsTemp));
+// };
 
 const GreetingsReducer = (state = {}, action) => {
   switch (action.type) {
