@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Greeting from './greetings.js';
+import Greeting from './components/greetings';
 
 const App = () => (
   <>
